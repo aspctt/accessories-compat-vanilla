@@ -45,9 +45,9 @@ Which items fit which slot is decided by the `accessories:cape` and `accessories
 * **The totem's display options are a client setting** rather than a server one, and need no config library. See [Configuration](#configuration).
 * The elytra goes in the cape slot on both loaders. Elytra Slot used Curios' back slot on NeoForge and Trinkets' cape slot on Fabric.
 
-### Not carried over yet
+### Not supported
 
-These integrations need the other mod's code to build against, and are not ported yet:
+These integrations from the original mods are not part of this one:
 
 * Deeper Darker: boosting with the Soul Elytra from an accessory slot. The Soul Elytra flies and is drawn, but its boost key only works from the chest slot.
 * MinecraftCapes: its capes are not used as the accessory elytra's texture (Elytra Slot did this on NeoForge only).
