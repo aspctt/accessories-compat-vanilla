@@ -8,6 +8,8 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 description = '''${mod_description}'''
 logoFile = "icon.png"
+# Pixel art, so scaled without smoothing.
+logoBlur = false
 authors = "${mod_authors}"
 credits = "Built on Elytra Slot and Charm of Undying by Illusive Soulworks"
 

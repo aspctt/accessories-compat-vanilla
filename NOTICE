@@ -23,8 +23,8 @@ your option) any later version. This project uses that code under version 3
 of the License only. Every source file derived from them keeps the original
 copyright line and states that it was modified in 2026.
 
-The mod icon combines the icons of Elytra Slot and Charm of Undying, which are
-distributed by Illusive Soulworks under the same licence as their source.
+The mod icon's frame and colours follow the Accessories icon, and its elytra
+and Totem of Undying are outlines traced from Minecraft's item textures.
 
 Build tooling in this repository derives from the NeoForged Mod Development Kit
 and is used under the MIT License:
