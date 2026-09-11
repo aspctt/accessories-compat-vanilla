@@ -10,6 +10,10 @@
 ![Fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg)
 ![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
 
+[![GitHub](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg)](https://github.com/aspctt/accessories-compat-vanilla)
+[![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg)](https://modrinth.com/mod/accessories-compat-vanilla)
+[![CurseForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/accessories-compat-vanilla)
+
 </div>
 
 ## Description
@@ -37,7 +41,7 @@ Which items fit which slot is decided by the `accessories:cape` and `accessories
 
 ## Differences from Elytra Slot and Charm of Undying
 
-* **No Caelus API on NeoForge.** Flight comes from three small hooks on the places vanilla checks the chest slot, so other mods that control when a glide starts, like Do a Barrel Roll's jump activation, keep working.
+* **No Caelus API on NeoForge.** Flight comes from three small hooks on the places vanilla checks the chest slot, so other mods that control when a glide starts, like Do Another Barrel Roll's jump activation, keep working.
 * **The totem's display options are a client setting** rather than a server one, and need no config library. See [Configuration](#configuration).
 * The elytra goes in the cape slot on both loaders. Elytra Slot used Curios' back slot on NeoForge and Trinkets' cape slot on Fabric.
 

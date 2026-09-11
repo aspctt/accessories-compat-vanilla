@@ -10,6 +10,10 @@
 ![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
 ![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
 
+[![GitHub](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg)](https://github.com/aspctt/accessories-compat-vanilla)
+[![Modrinth](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/modrinth_vector.svg)](https://modrinth.com/mod/accessories-compat-vanilla)
+[![CurseForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/curseforge_vector.svg)](https://www.curseforge.com/minecraft/mc-mods/accessories-compat-vanilla)
+
 </div>
 
 Wear an elytra and a Totem of Undying in Accessories slots. Accessories Compat: Vanilla merges Elytra Slot and Charm of Undying into one mod, built directly on the Accessories API, with the same features on NeoForge and Fabric.
@@ -24,7 +28,7 @@ Saves you from death without being held, with the full activation animation, sta
 
 ### No Caelus needed
 
-On NeoForge, flight works without Caelus API, and leaves other elytra mods like Do a Barrel Roll free to decide when a glide starts.
+On NeoForge, flight works without Caelus API, and leaves other elytra mods like Do Another Barrel Roll free to decide when a glide starts.
 
 ### Requirements
 
