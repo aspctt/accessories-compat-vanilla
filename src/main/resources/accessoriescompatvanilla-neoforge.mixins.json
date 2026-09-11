@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.aspctt.accessoriescompatvanilla.neoforge.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LivingEntityElytraMixin",
+    "PlayerElytraMixin"
+  ],
+  "client": [
+    "client.CapeLayerMixin",
+    "client.LocalPlayerElytraMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

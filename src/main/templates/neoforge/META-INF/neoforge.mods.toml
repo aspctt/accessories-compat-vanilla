@@ -1,0 +1,40 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+description = '''${mod_description}'''
+logoFile = "icon.png"
+authors = "${mod_authors}"
+credits = "Built on Elytra Slot and Charm of Undying by Illusive Soulworks"
+
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+[[mixins]]
+config = "${mod_id}-neoforge.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neo_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+# The elytra and totem slots come from Accessories.
+[[dependencies.${mod_id}]]
+modId = "accessories"
+type = "required"
+versionRange = "${accessories_version_range}"
+ordering = "NONE"
+side = "BOTH"
