@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:totem_of_undying",
+    { "id": "biomemakeover:enchanted_totem", "required": false },
+    { "id": "netheriteextras:totem_of_neverdying", "required": false }
+  ]
+}

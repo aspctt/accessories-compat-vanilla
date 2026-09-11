@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.aspctt.accessoriescompatvanilla.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LivingEntityTotemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
