@@ -4,10 +4,10 @@
 
 ![Version](https://img.shields.io/badge/Available_for-1.21.1-blue)
 ![Requires](https://img.shields.io/badge/Requires-Accessories-blueviolet)
-![License](https://img.shields.io/badge/License-LGPL--3.0--only-green)
+![License](https://img.shields.io/badge/License-LGPL--3.0--only-red)
 
-![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
 ![Fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg)
+![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
 ![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
 
 </div>

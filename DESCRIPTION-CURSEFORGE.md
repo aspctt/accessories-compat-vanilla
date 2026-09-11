@@ -3,12 +3,12 @@
 <p style="text-align: center;">
 	<img src="https://img.shields.io/badge/Available_for-1.21.1-blue" alt="Version">
 	<img src="https://img.shields.io/badge/Requires-Accessories-blueviolet" alt="Requires">
-	<img src="https://img.shields.io/badge/License-LGPL--3.0--only-green" alt="License">
+	<img src="https://img.shields.io/badge/License-LGPL--3.0--only-red" alt="License">
 </p>
 
 <p style="text-align: center;">
-	<img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg" alt="NeoForge">
 	<img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg" alt="Fabric">
+	<img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg" alt="NeoForge">
 	<img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg" alt="Forge">
 </p>
 

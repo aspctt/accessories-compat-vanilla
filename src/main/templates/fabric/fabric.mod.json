@@ -5,6 +5,11 @@
   "name": "${mod_name}",
   "description": "${mod_description}",
   "authors": [${mod_authors_json}],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/accessories-compat-vanilla",
+    "sources": "https://github.com/aspctt/accessories-compat-vanilla",
+    "issues": "https://github.com/aspctt/accessories-compat-vanilla/issues"
+  },
   "license": "${mod_license}",
   "icon": "icon.png",
   "environment": "*",

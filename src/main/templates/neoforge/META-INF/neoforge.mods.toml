@@ -1,6 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "${loader_version_range}"
 license = "${mod_license}"
+issueTrackerURL = "https://github.com/aspctt/accessories-compat-vanilla/issues"
 
 [[mods]]
 modId = "${mod_id}"
@@ -11,6 +12,7 @@ logoFile = "icon.png"
 # Pixel art, so scaled without smoothing.
 logoBlur = false
 authors = "${mod_authors}"
+displayURL = "https://modrinth.com/mod/accessories-compat-vanilla"
 credits = "Built on Elytra Slot and Charm of Undying by Illusive Soulworks"
 
 [[mixins]]
