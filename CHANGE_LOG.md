@@ -1,7 +1,10 @@
 # Accessories Compat: Vanilla :: Change Log
 - - -
 
-* Unreleased: 1.0.0
+* Unreleased: 1.0.1
+	+ Name the jar AccessoriesCompatVanilla-<version>+<minecraft version>-<loader>.jar, so the NeoForge and Fabric files no longer share a name
+
+* 2026-09-11: 1.0.0
 	+ First release, merging Elytra Slot and Charm of Undying into one mod built natively on the Accessories API
 	+ Elytra in the cape slot: flies, wears down and hides the cape as it would in the chest slot, and is drawn with the wearer's own elytra or cape texture
 	+ Totem of Undying in the charm slot: saves the wearer before a held totem would, with the full activation animation for everyone nearby, and is drawn on the chest

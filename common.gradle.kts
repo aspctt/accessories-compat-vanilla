@@ -9,9 +9,8 @@ fun extraBuildMetadata(): String {
 }
 
 // Everything after the "+" is semver build metadata, so it is ignored when versions are compared while
-// still naming the jar and showing up in the mods list: AccessoriesCompatVanilla-1.0.0+1.21.1.jar. Both loaders
-// produce a jar of that name, each in its own versions/<target>/build/libs.
-version = "${prop("mod_version")}+${prop("minecraft_version")}" + extraBuildMetadata()
+// still naming the jar and showing up in the mods list: AccessoriesCompatVanilla-1.0.1+1.21.1-neoforge.jar.
+version = "${prop("mod_version")}+${prop("minecraft_version")}-${prop("mod_loader")}" + extraBuildMetadata()
 group = prop("mod_group_id")
 
 // An applied script gets no typed accessors from the applying script's plugins block, so the extensions
@@ -59,9 +58,7 @@ tasks.named<Jar>("jar") {
 configure<PublishingExtension> {
     publications {
         register<MavenPublication>("mavenJava") {
-            // The jar name carries no loader, so the artifact id does, or the two targets would overwrite
-            // each other in the local repository.
-            artifactId = prop("mod_archives_name") + "-" + prop("mod_loader")
+            artifactId = prop("mod_archives_name")
             from(components["java"])
         }
     }
