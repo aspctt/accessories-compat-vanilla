@@ -1,0 +1,68 @@
+"Minecraft" is a trademark of Mojang Synergies AB; ©2009-2026 Mojang
+Synergies AB and Microsoft Corporation. This project is in no way associated
+with nor endorsed by Mojang Synergies AB or Microsoft Corporation.
+
+Accessories Compat: Vanilla is an unofficial add-on for Accessories, and is in
+no way associated with nor endorsed by the Accessories team.
+
+Other trademarks and registered trademarks are the property of the respective
+trademark holders.
+
+
+THIRD-PARTY COMPONENTS
+
+Accessories Compat: Vanilla merges and ports two mods by Illusive Soulworks,
+Elytra Slot (https://github.com/illusivesoulworks/elytraslot) and Charm of
+Undying (https://github.com/illusivesoulworks/charmofundying), from Curios API
+and Trinkets API to the Accessories API. Both are:
+
+    Copyright (C) 2019-2022 Illusive Soulworks
+
+and licensed under the GNU Lesser General Public License, version 3 or (at
+your option) any later version. This project uses that code under version 3
+of the License only. Every source file derived from them keeps the original
+copyright line and states that it was modified in 2026.
+
+The mod icon combines the icons of Elytra Slot and Charm of Undying, which are
+distributed by Illusive Soulworks under the same licence as their source.
+
+Build tooling in this repository derives from the NeoForged Mod Development Kit
+and is used under the MIT License:
+
+    MIT License
+
+    Copyright (c) 2023 NeoForged project
+
+    This license applies to the template files as supplied by
+    github.com/NeoForged/MDK
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+
+Accessories Compat: Vanilla is built against the NeoForge modding platform,
+licensed under the GNU Lesser General Public License v2.1, and against Fabric
+Loader and Fabric API. None of them is bundled with or redistributed by this
+project.
+
+Accessories Compat: Vanilla compiles against Accessories, licensed under the
+MIT License. Accessories and the libraries it depends on, owo-lib among them,
+are required at runtime, remain under their own licences, and are not bundled
+with or redistributed by this project.
+
+
+© 2026 ASPCT
