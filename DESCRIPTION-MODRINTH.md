@@ -18,6 +18,12 @@
 
 Wear an elytra and a Totem of Undying in Accessories slots. Accessories Compat: Vanilla merges Elytra Slot and Charm of Undying into one mod, built directly on the Accessories API, with the same features on NeoForge and Fabric.
 
+<div align="center">
+
+![Accessories Screen](https://i.ibb.co/S753T0Jf/Accessories-Compat-Vanilla-Accessories-Screen.png)
+
+</div>
+
 ### Elytra, in the cape slot
 
 Flies and wears down exactly as it would in the chest slot, so you can wear a chestplate at the same time. It is drawn with your own elytra or cape texture, hides your cape, and respects the slot's visibility toggle and cosmetic slots. Elytras from Deeper Darker, Mekanism, Lil' Wings and several other mods work too.
