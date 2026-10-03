@@ -6,8 +6,8 @@
 ![Requires](https://img.shields.io/badge/Requires-Accessories-blueviolet)
 ![License](https://img.shields.io/badge/License-LGPL--3.0--only-red)
 
-![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
 ![Fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/fabric_vector.svg)
+![NeoForge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/neoforge_vector.svg)
 ![Forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/unsupported/forge_vector.svg)
 
 [![GitHub](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/compact-minimal/available/github_vector.svg)](https://github.com/aspctt/accessories-compat-vanilla)
@@ -116,3 +116,7 @@ It contains code derived from Elytra Slot and Charm of Undying, Copyright (C) 20
 * Wisp Forest - [Accessories](https://github.com/wisp-forest/accessories), whose slots it fills
 * NeoForged - [NeoForge](https://github.com/neoforged/NeoForge), and the MDK this project started from
 * FabricMC - Fabric Loader and Fabric API
+
+<p align=center>
+	<a alt="BuyMeACoffee" href="https://buymeacoffee.com/aspctt"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg"></a>
+</p>
