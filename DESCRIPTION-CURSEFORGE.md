@@ -43,3 +43,7 @@
 <h3>License</h3>
 
 <p>LGPL-3.0-only. Contains code from Elytra Slot and Charm of Undying by Illusive Soulworks, used under the LGPL.</p>
+
+<p style="text-align: center;">
+	<a alt="BuyMeACoffee" href="https://buymeacoffee.com/aspctt"><img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg"></a>
+</p>

@@ -43,3 +43,9 @@ Minecraft 1.21.1, Accessories 1.1.0-beta.53 or newer, and either NeoForge 21.1.2
 ### License
 
 LGPL-3.0-only. Contains code from Elytra Slot and Charm of Undying by Illusive Soulworks, used under the LGPL.
+
+<div align="center">
+
+[![BuyMeACoffee](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/donate/buymeacoffee-singular_vector.svg)](https://buymeacoffee.com/aspctt)
+
+</div>
