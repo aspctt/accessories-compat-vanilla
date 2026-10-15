@@ -1,10 +1,12 @@
 # Accessories Compat: Vanilla :: Change Log
 - - -
 
-* Unreleased: 1.0.1
-	+ Name the jar AccessoriesCompatVanilla-<version>+<minecraft version>-<loader>.jar, so the NeoForge and Fabric files no longer share a name
+* Unreleased: 1.0.2
 	+ Draw Alex's Mobs Continued's Tarantula Hawk Elytra from the cape slot, and let it fly from there on Fabric too
 	+ Boost with Deeper Darker's Soul Elytra from the cape slot, with Deeper Darker's own messages on NeoForge and boost gauge on Fabric
+
+* 2026-09-12: 1.0.1
+	+ Name the jar AccessoriesCompatVanilla-<version>+<minecraft version>-<loader>.jar, so the NeoForge and Fabric files no longer share a name
 
 * 2026-09-11: 1.0.0
 	+ First release, merging Elytra Slot and Charm of Undying into one mod built natively on the Accessories API
