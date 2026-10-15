@@ -95,7 +95,7 @@ The build is organised with [Stonecutter](https://stonecutter.kikugie.dev/), whi
 ./gradlew :1.21.1-neoforge:runClient     # run one, sharing the root run/ directory
 ```
 
-Jars are written to `versions/<target>/build/libs`, named `AccessoriesCompatVanilla-<version>+<minecraft version>-<loader>.jar`.
+Jars are written to `versions/<target>/build/libs`, named `AccessoriesCompatVanilla-<version>+<minecraft version>-<loader>.jar`, each with a matching `-sources.jar` in Mojang's names.
 
 | Target | Status |
 |---|---|

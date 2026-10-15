@@ -37,10 +37,14 @@ dependencies {
 }
 
 // The other loader's code lives in a package of its own so it can simply be left out, along with the mixin
-// config that lists it.
+// config that lists it. Excluding them from the source set keeps them out of the sources jar as well.
 sourceSets.main.get().java.exclude("**/neoforge/**")
-tasks.named<ProcessResources>("processResources") {
-    exclude(prop("mod_id") + "-neoforge.mixins.json")
+sourceSets.main.get().resources.exclude(prop("mod_id") + "-neoforge.mixins.json")
+
+// The sources jar keeps the Mojang names the code is written in, matching the NeoForge one, rather than being
+// remapped to intermediary like the mod jar. Loom copies it unchanged when the two namespaces match.
+tasks.named<net.fabricmc.loom.task.RemapSourcesJarTask>("remapSourcesJar") {
+    targetNamespace = "named"
 }
 
 // Expand the declared properties into the mod metadata template. The shared keys come from

@@ -23,6 +23,8 @@ configure<BasePluginExtension> {
 val javaVersion = 21
 configure<JavaPluginExtension> {
     toolchain.languageVersion = JavaLanguageVersion.of(javaVersion)
+    // A -sources jar is built next to each mod jar and published with it.
+    withSourcesJar()
 }
 
 // Expand the declared properties into the mod metadata templates. Each loader's script contributes the
@@ -44,14 +46,16 @@ val commonMetadataProperties: Map<String, String> = mapOf(
 )
 extra["commonMetadataProperties"] = commonMetadataProperties
 
-// The licence texts and notices travel inside the jar, suffixed so they cannot collide with another mod's.
-// LGPL-3.0 is the GPL-3.0 plus additional permissions, so both texts ship.
-tasks.named<Jar>("jar") {
-    // A local rather than a script-level value: the configuration cache cannot serialise a lambda that
-    // reaches back into the script object, and a top-level val is a member of it.
-    val suffix = "_" + prop("mod_archives_name")
-    from(rootProject.files("LICENSE", "NOTICE", "COPYING", "COPYING.LESSER")) {
-        rename { it + suffix }
+// The licence texts and notices travel inside the jar and the sources jar, suffixed so they cannot collide
+// with another mod's. LGPL-3.0 is the GPL-3.0 plus additional permissions, so both texts ship.
+for (jarTask in listOf("jar", "sourcesJar")) {
+    tasks.named<Jar>(jarTask) {
+        // A local rather than a script-level value: the configuration cache cannot serialise a lambda that
+        // reaches back into the script object, and a top-level val is a member of it.
+        val suffix = "_" + prop("mod_archives_name")
+        from(rootProject.files("LICENSE", "NOTICE", "COPYING", "COPYING.LESSER")) {
+            rename { it + suffix }
+        }
     }
 }
 
