@@ -17,12 +17,19 @@
 package com.aspctt.accessoriescompatvanilla.fabric;
 
 import com.aspctt.accessoriescompatvanilla.client.AccessoriesCompatVanillaClient;
+import com.aspctt.accessoriescompatvanilla.client.SoulElytraBoostKey;
 import com.aspctt.accessoriescompatvanilla.elytra.ElytraFlight;
+import com.aspctt.accessoriescompatvanilla.elytra.SoulElytraBoost;
+import com.aspctt.accessoriescompatvanilla.network.SoulElytraBoostPayload;
 import com.aspctt.accessoriescompatvanilla.network.UseTotemPayload;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRenderEvents;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 public class AccessoriesCompatVanillaFabricClient implements ClientModInitializer {
@@ -38,5 +45,17 @@ public class AccessoriesCompatVanillaFabricClient implements ClientModInitialize
             id -> AccessoriesCompatVanillaClient.registerRenderer(id, BuiltInRegistries.ITEM.get(id)));
         RegistryEntryAddedCallback.event(BuiltInRegistries.ITEM).register(
             (rawId, id, item) -> AccessoriesCompatVanillaClient.registerRenderer(id, item));
+
+        if (FabricLoader.getInstance().isModLoaded(SoulElytraBoost.MOD_ID)) {
+            ClientTickEvents.END_CLIENT_TICK.register(AccessoriesCompatVanillaFabricClient::onEndTick);
+            HudRenderCallback.EVENT.register(FabricSoulElytraHud::render);
+        }
+    }
+
+    private static void onEndTick(Minecraft client) {
+        // A server without this mod has no use for the request.
+        if (SoulElytraBoostKey.shouldRequestBoost() && ClientPlayNetworking.canSend(SoulElytraBoostPayload.TYPE)) {
+            ClientPlayNetworking.send(SoulElytraBoostPayload.INSTANCE);
+        }
     }
 }

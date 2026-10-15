@@ -17,8 +17,11 @@
 package com.aspctt.accessoriescompatvanilla.neoforge;
 
 import com.aspctt.accessoriescompatvanilla.AccessoriesCompatVanilla;
+import com.aspctt.accessoriescompatvanilla.elytra.SoulElytraBoost;
+import com.aspctt.accessoriescompatvanilla.network.SoulElytraBoostPayload;
 import com.aspctt.accessoriescompatvanilla.network.UseTotemPayload;
 import com.aspctt.accessoriescompatvanilla.platform.Platform;
+import io.wispforest.accessories.api.events.AccessoryChangeCallback;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -36,6 +39,10 @@ public class AccessoriesCompatVanillaNeoForge {
         AccessoriesCompatVanilla.init();
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::registerPayloads);
+
+        if (Platform.get().isModLoaded(SoulElytraBoost.MOD_ID)) {
+            AccessoryChangeCallback.EVENT.register(NeoForgeSoulElytraBoost::onAccessoryChange);
+        }
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
@@ -46,9 +53,14 @@ public class AccessoriesCompatVanillaNeoForge {
     }
 
     private void registerPayloads(RegisterPayloadHandlersEvent event) {
-        // Handlers run on the main thread by default.
-        event.registrar(NETWORK_VERSION).playToClient(
-            UseTotemPayload.TYPE, UseTotemPayload.STREAM_CODEC,
-            (payload, context) -> UseTotemPayload.handleOnClient(payload));
+        // Handlers run on the main thread by default. The boost is registered even without Deeper Darker, so the
+        // two sides always agree on the payloads.
+        event.registrar(NETWORK_VERSION)
+            .playToClient(
+                UseTotemPayload.TYPE, UseTotemPayload.STREAM_CODEC,
+                (payload, context) -> UseTotemPayload.handleOnClient(payload))
+            .playToServer(
+                SoulElytraBoostPayload.TYPE, SoulElytraBoostPayload.STREAM_CODEC,
+                NeoForgeSoulElytraBoost::handle);
     }
 }

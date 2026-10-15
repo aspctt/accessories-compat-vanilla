@@ -17,12 +17,14 @@
 package com.aspctt.accessoriescompatvanilla.fabric;
 
 import com.aspctt.accessoriescompatvanilla.AccessoriesCompatVanilla;
+import com.aspctt.accessoriescompatvanilla.network.SoulElytraBoostPayload;
 import com.aspctt.accessoriescompatvanilla.network.UseTotemPayload;
 import com.aspctt.accessoriescompatvanilla.platform.Platform;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
 import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 public class AccessoriesCompatVanillaFabric implements ModInitializer {
@@ -32,6 +34,8 @@ public class AccessoriesCompatVanillaFabric implements ModInitializer {
         AccessoriesCompatVanilla.init();
 
         PayloadTypeRegistry.playS2C().register(UseTotemPayload.TYPE, UseTotemPayload.STREAM_CODEC);
+        PayloadTypeRegistry.playC2S().register(SoulElytraBoostPayload.TYPE, SoulElytraBoostPayload.STREAM_CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(SoulElytraBoostPayload.TYPE, FabricSoulElytraBoost::handle);
         EntityElytraEvents.CUSTOM.register(FabricElytraFlight::useAccessoryElytra);
 
         // Mods initialise one after another, so the items already registered are handled now and the rest as
