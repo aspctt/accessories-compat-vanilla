@@ -39,7 +39,8 @@ public final class AccessoriesCompatVanillaClient {
 
         if (elytra != null) {
             if (elytra.getTexture(id) != null) {
-                AccessoriesRendererRegistry.registerRenderer(id, ElytraAccessoryRenderer::new);
+                boolean usesArmorTexture = elytra.usesArmorTexture(id);
+                AccessoriesRendererRegistry.registerRenderer(id, () -> new ElytraAccessoryRenderer(usesArmorTexture));
             }
         } else if (TotemProviders.isRenderedTotem(id)) {
             AccessoriesRendererRegistry.registerRenderer(id, TotemAccessoryRenderer::new);

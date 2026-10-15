@@ -25,12 +25,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.Nullable;
 
-// Other mods' elytras that use the vanilla elytra model with a texture of their own. Only mods that are loaded
-// are listed, so the map is built once when the mod starts.
+// Other mods' elytras that are shaped like the vanilla elytra but have a texture of their own. Only mods that are
+// loaded are listed, so the map is built once when the mod starts.
 public class ModdedElytraProvider implements ElytraProvider {
     private static final ResourceLocation SOUL_ELYTRA = ResourceLocation.parse("deeperdarker:soul_elytra");
+    private static final ResourceLocation TARANTULA_HAWK_ELYTRA =
+        ResourceLocation.parse("alexsmobs:tarantula_hawk_elytra");
 
-    // A null texture marks an elytra that flies from an accessory slot but that this mod does not draw.
     private final Map<ResourceLocation, ResourceLocation> textures = new HashMap<>();
     private final boolean lilWings;
 
@@ -50,8 +51,7 @@ public class ModdedElytraProvider implements ElytraProvider {
             put("mekanism:hdpe_elytra", "mekanism:textures/entity/hdpe_elytra.png");
         }
         if (platform.isModLoaded("alexsmobs")) {
-            // Elytra Slot listed this one without a texture, so it is left for Alex's Mobs to draw.
-            textures.put(ResourceLocation.parse("alexsmobs:tarantula_hawk_elytra"), null);
+            put("alexsmobs:tarantula_hawk_elytra", "alexsmobs:textures/armor/tarantula_hawk_elytra.png");
         }
         if (platform.isModLoaded("mna")) {
             put("mna:spectral_elytra", "mna:textures/entity/elytra.png");
@@ -98,7 +98,12 @@ public class ModdedElytraProvider implements ElytraProvider {
 
     @Override
     public boolean usesPlayerTexture(ResourceLocation id) {
-        // Both are drawn as creatures' wings, which a player's cape texture would cover up.
-        return !id.equals(SOUL_ELYTRA) && !isLilWings(id);
+        // All three are drawn as creatures' wings, which a player's cape texture would cover up.
+        return !id.equals(SOUL_ELYTRA) && !id.equals(TARANTULA_HAWK_ELYTRA) && !isLilWings(id);
+    }
+
+    @Override
+    public boolean usesArmorTexture(ResourceLocation id) {
+        return id.equals(TARANTULA_HAWK_ELYTRA);
     }
 }

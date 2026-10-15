@@ -39,4 +39,11 @@ public interface ElytraProvider {
     default boolean usesPlayerTexture(ResourceLocation id) {
         return true;
     }
+
+    // Whether the texture is a 64x64 armour texture with the wings at 32, 32, the way Alex's Mobs lays out its
+    // Tarantula Hawk Elytra, rather than a 64x32 elytra texture. Armour that doubles as an elytra is only drawn
+    // when this is set.
+    default boolean usesArmorTexture(ResourceLocation id) {
+        return false;
+    }
 }

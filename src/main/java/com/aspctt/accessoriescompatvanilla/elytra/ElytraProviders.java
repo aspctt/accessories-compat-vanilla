@@ -67,15 +67,20 @@ public final class ElytraProviders {
         return !stack.isEmpty() && (stack.is(ELYTRA) || find(stack) != null);
     }
 
-    // The texture this mod draws the stack with, or null when it does not draw it. Armour that doubles as an
-    // elytra draws itself, as it did in Elytra Slot.
+    // The texture this mod draws the stack with, or null when it does not draw it. Elytra Slot left armour that
+    // doubles as an elytra to draw itself, which it only does from the chest slot, so armour is drawn here only
+    // when its provider knows the armour texture.
     @Nullable
     public static ResourceLocation getTexture(ItemStack stack) {
-        if (stack.isEmpty() || stack.getItem() instanceof ArmorItem) {
+        if (stack.isEmpty()) {
             return null;
         }
         ResourceLocation id = BuiltInRegistries.ITEM.getKey(stack.getItem());
         ElytraProvider provider = find(id, stack.getItem());
-        return provider != null ? provider.getTexture(id) : null;
+
+        if (provider == null || (stack.getItem() instanceof ArmorItem && !provider.usesArmorTexture(id))) {
+            return null;
+        }
+        return provider.getTexture(id);
     }
 }

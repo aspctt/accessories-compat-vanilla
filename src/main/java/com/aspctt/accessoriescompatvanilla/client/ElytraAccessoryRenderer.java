@@ -28,6 +28,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ElytraModel;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -44,8 +51,33 @@ import net.minecraft.world.item.ItemStack;
 // cape texture. Going through Accessories rather than a render layer of its own means the slot's visibility
 // toggle and cosmetic slots apply to it.
 public class ElytraAccessoryRenderer implements AccessoryRenderer {
-    private final ElytraModel<LivingEntity> elytraModel =
-        new ElytraModel<>(Minecraft.getInstance().getEntityModels().bakeLayer(ModelLayers.ELYTRA));
+    private final ElytraModel<LivingEntity> elytraModel;
+
+    public ElytraAccessoryRenderer(boolean usesArmorTexture) {
+        ModelPart root = usesArmorTexture
+            ? createArmorTextureLayer().bakeRoot()
+            : Minecraft.getInstance().getEntityModels().bakeLayer(ModelLayers.ELYTRA);
+        elytraModel = new ElytraModel<>(root);
+    }
+
+    // Vanilla's elytra wings, mapped to where Alex's Mobs puts them on its armour texture. Baked straight from
+    // the definition rather than registered as a model layer, since nothing else needs to look it up.
+    private static LayerDefinition createArmorTextureLayer() {
+        MeshDefinition mesh = new MeshDefinition();
+        PartDefinition root = mesh.getRoot();
+        CubeDeformation deformation = new CubeDeformation(1.0F);
+        root.addOrReplaceChild(
+            "left_wing",
+            CubeListBuilder.create().texOffs(32, 32).addBox(-10.0F, 0.0F, 0.0F, 10.0F, 20.0F, 2.0F, deformation),
+            PartPose.offsetAndRotation(5.0F, 0.0F, 0.0F, (float) (Math.PI / 12), 0.0F, (float) (-Math.PI / 12))
+        );
+        root.addOrReplaceChild(
+            "right_wing",
+            CubeListBuilder.create().texOffs(32, 32).mirror().addBox(0.0F, 0.0F, 0.0F, 10.0F, 20.0F, 2.0F, deformation),
+            PartPose.offsetAndRotation(-5.0F, 0.0F, 0.0F, (float) (Math.PI / 12), 0.0F, (float) (Math.PI / 12))
+        );
+        return LayerDefinition.create(mesh, 64, 64);
+    }
 
     @Override
     public <M extends LivingEntity> void render(
