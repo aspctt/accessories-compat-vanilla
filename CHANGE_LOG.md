@@ -1,7 +1,7 @@
 # Accessories Compat: Vanilla :: Change Log
 - - -
 
-* Unreleased: 1.0.2
+* 2026-10-16: 1.0.2
 	+ Draw Alex's Mobs Continued's Tarantula Hawk Elytra from the cape slot, and let it fly from there on Fabric too
 	+ Boost with Deeper Darker's Soul Elytra from the cape slot, with Deeper Darker's own messages on NeoForge and boost gauge on Fabric
 
