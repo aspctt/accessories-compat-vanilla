@@ -32,7 +32,8 @@ Accessories Compat: Vanilla lets the elytra and the Totem of Undying be worn in 
 * Wears down while gliding and stops working at one durability, as in the chest slot.
 * Is drawn on the player and on armor stands, using the player's own elytra or cape texture when they have one, and hides the cape it covers. The slot's visibility toggle and cosmetic slots apply to it.
 * Plays the elytra's equip sound, and cannot be equipped while an elytra is already worn in the chest slot.
-* Modded elytras that use the vanilla model are recognised and drawn with their own texture: Deeper Darker, Enderite Mod, Mythic Metals, Mekanism, Mana and Artifice, Wooden Elytra, LieOnLion's Enderite, Nether Elytra, Crystal Mod and Lil' Wings.
+* Modded elytras that use the vanilla model are recognised and drawn with their own texture: Deeper Darker, Alex's Mobs Continued, Enderite Mod, Mythic Metals, Mekanism, Mana and Artifice, Wooden Elytra, LieOnLion's Enderite, Nether Elytra, Crystal Mod and Lil' Wings.
+* Deeper Darker's Soul Elytra boosts from the slot with its boost key, the way it does from the chest slot on each loader: a rocket on NeoForge, a sonic boom dash on Fabric.
 * Any other elytra can be made to fly from the slot by adding it to the `accessoriescompatvanilla:elytra` item tag with a datapack.
 
 ### Totem of Undying
@@ -55,7 +56,6 @@ Which items fit which slot is decided by the `accessories:cape` and `accessories
 
 These integrations from the original mods are not part of this one:
 
-* Deeper Darker: boosting with the Soul Elytra from an accessory slot. The Soul Elytra flies and is drawn, but its boost key only works from the chest slot.
 * MinecraftCapes: its capes are not used as the accessory elytra's texture (Elytra Slot did this on NeoForge only).
 * Wavey Capes: its cape is not hidden under an accessory elytra.
 * Fabric Waystones: the Void Totem does not work from the charm slot (Charm of Undying did this on Fabric only).
