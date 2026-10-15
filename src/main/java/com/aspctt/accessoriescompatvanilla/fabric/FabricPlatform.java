@@ -18,6 +18,7 @@
 
 package com.aspctt.accessoriescompatvanilla.fabric;
 
+import com.aspctt.accessoriescompatvanilla.elytra.ElytraProviders;
 import com.aspctt.accessoriescompatvanilla.platform.Platform;
 import java.nio.file.Path;
 import net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem;
@@ -50,7 +51,10 @@ public class FabricPlatform extends Platform {
         if (item instanceof FabricElytraItem fabricElytraItem) {
             return fabricElytraItem.useCustomElytra(entity, stack, false);
         }
-        return item instanceof ElytraItem && ElytraItem.isFlyEnabled(stack);
+        // A known elytra that is neither glides through a listener of its own on Fabric API's elytra event, which
+        // only looks at the chest slot (Alex's Mobs' Tarantula Hawk Elytra does this), so it flies by vanilla's
+        // rule instead.
+        return (item instanceof ElytraItem || ElytraProviders.isElytra(stack)) && ElytraItem.isFlyEnabled(stack);
     }
 
     @Override
