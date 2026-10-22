@@ -30,7 +30,7 @@ Wear an elytra and a Totem of Undying in Accessories slots. Accessories Compat: 
 
 ### Elytra, in the cape slot
 
-Flies and wears down exactly as it would in the chest slot, so you can wear a chestplate at the same time. It is drawn with your own elytra or cape texture, hides your cape, and respects the slot's visibility toggle and cosmetic slots. Elytras from Deeper Darker (boost included), Alex's Mobs Continued, Mekanism, Lil' Wings and several other mods work too.
+Flies and wears down exactly as it would in the chest slot, so you can wear a chestplate at the same time. It is drawn with your own elytra or cape texture, hides your cape, and respects the slot's visibility toggle and cosmetic slots. Elytras from Deeper Darker (boost included), Alex's Mobs Continued, Mekanism, Lil' Wings and several other mods work too, and Elytra Trims' trims, patterns and dyes show on it.
 
 ### Totem of Undying, in the charm slot
 

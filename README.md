@@ -34,6 +34,7 @@ Accessories Compat: Vanilla lets the elytra and the Totem of Undying be worn in 
 * Plays the elytra's equip sound, and cannot be equipped while an elytra is already worn in the chest slot.
 * Modded elytras that use the vanilla model are recognised and drawn with their own texture: Deeper Darker, Alex's Mobs Continued, Enderite Mod, Mythic Metals, Mekanism, Mana and Artifice, Wooden Elytra, LieOnLion's Enderite, Nether Elytra, Crystal Mod and Lil' Wings.
 * Deeper Darker's Soul Elytra boosts from the slot with its boost key, the way it does from the chest slot on each loader: a rocket on NeoForge, a sonic boom dash on Fabric.
+* Elytra Trims 3.10.0 or newer draws its trims, banner patterns, dyes and other effects on the elytra in the slot, and its setting for hiding the cape texture on elytras applies there too.
 * Any other elytra can be made to fly from the slot by adding it to the `accessoriescompatvanilla:elytra` item tag with a datapack.
 
 ### Totem of Undying
