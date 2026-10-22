@@ -16,6 +16,11 @@ repositories {
     maven("https://maven.su5ed.dev/releases") { name = "Sinytra" }
     // Jankson, a dependency of owo-lib.
     mavenCentral()
+    // Elytra Trims, served from its Modrinth files.
+    maven("https://api.modrinth.com/maven") {
+        name = "Modrinth"
+        content { includeGroup("maven.modrinth") }
+    }
 }
 
 neoForge {
@@ -57,6 +62,8 @@ sourceSets.main.get().java.exclude("**/fabric/**")
 dependencies {
     // Accessories is required, and brings owo-lib and Forgified Fabric API's base module with it.
     implementation("io.wispforest:accessories-neoforge:${prop("accessories_version")}")
+    // Elytra Trims' API, called only when Elytra Trims is installed, so it stays off the runtime classpath.
+    compileOnly("maven.modrinth:elytra-trims:${prop("elytra_trims_version")}")
 }
 
 // Expand the declared properties into the mod metadata template. The shared keys come from

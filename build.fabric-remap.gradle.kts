@@ -14,6 +14,11 @@ repositories {
     maven("https://maven.wispforest.io/releases/") { name = "Wisp Forest" }
     // Jankson, a dependency of owo-lib.
     mavenCentral()
+    // Elytra Trims, served from its Modrinth files.
+    maven("https://api.modrinth.com/maven") {
+        name = "Modrinth"
+        content { includeGroup("maven.modrinth") }
+    }
 }
 
 // No mixin block: Loom remaps the mixins' target names directly when it remaps the jar, so no refmap is made.
@@ -34,6 +39,8 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("fabric_api_version")}")
     // Accessories is required, and brings owo-lib with it.
     modImplementation("io.wispforest:accessories-fabric:${prop("accessories_version")}")
+    // Elytra Trims' API, called only when Elytra Trims is installed, so it stays off the runtime classpath.
+    modCompileOnly("maven.modrinth:elytra-trims:${prop("elytra_trims_version")}")
 }
 
 // The other loader's code lives in a package of its own so it can simply be left out, along with the mixin

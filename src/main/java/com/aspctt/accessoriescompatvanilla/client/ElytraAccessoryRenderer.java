@@ -52,8 +52,10 @@ import net.minecraft.world.item.ItemStack;
 // toggle and cosmetic slots apply to it.
 public class ElytraAccessoryRenderer implements AccessoryRenderer {
     private final ElytraModel<LivingEntity> elytraModel;
+    private final boolean usesArmorTexture;
 
     public ElytraAccessoryRenderer(boolean usesArmorTexture) {
+        this.usesArmorTexture = usesArmorTexture;
         ModelPart root = usesArmorTexture
             ? createArmorTextureLayer().bakeRoot()
             : Minecraft.getInstance().getEntityModels().bakeLayer(ModelLayers.ELYTRA);
@@ -108,7 +110,9 @@ public class ElytraAccessoryRenderer implements AccessoryRenderer {
 
             if (skin.elytraTexture() != null) {
                 texture = skin.elytraTexture();
-            } else if (skin.capeTexture() != null && player.isModelPartShown(PlayerModelPart.CAPE)) {
+            } else if (skin.capeTexture() != null
+                && player.isModelPartShown(PlayerModelPart.CAPE)
+                && ElytraTrimsCompat.shouldShowCape(player)) {
                 texture = skin.capeTexture();
             }
         }
@@ -120,9 +124,17 @@ public class ElytraAccessoryRenderer implements AccessoryRenderer {
         elytraModel.riding = model.riding;
         elytraModel.young = model.young;
         elytraModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        VertexConsumer consumer = ItemRenderer.getArmorFoilBuffer(
-            multiBufferSource, RenderType.armorCutoutNoCull(texture), stack.hasFoil());
-        elytraModel.renderToBuffer(matrices, consumer, light, OverlayTexture.NO_OVERLAY);
+
+        // Elytra Trims' textures follow the vanilla elytra's layout and would land on the wrong faces of wings
+        // drawn from an armour texture, so those are left plain, as Elytra Trims leaves them in the chest slot.
+        if (usesArmorTexture || ElytraTrimsCompat.shouldRenderBase(stack)) {
+            VertexConsumer consumer = ItemRenderer.getArmorFoilBuffer(
+                multiBufferSource, RenderType.armorCutoutNoCull(texture), stack.hasFoil());
+            elytraModel.renderToBuffer(matrices, consumer, light, OverlayTexture.NO_OVERLAY);
+        }
+        if (!usesArmorTexture) {
+            ElytraTrimsCompat.renderFeatures(elytraModel, matrices, multiBufferSource, entity, stack, texture, light);
+        }
         matrices.popPose();
     }
 }

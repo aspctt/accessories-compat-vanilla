@@ -21,10 +21,14 @@ package com.aspctt.accessoriescompatvanilla.fabric;
 import com.aspctt.accessoriescompatvanilla.elytra.ElytraProviders;
 import com.aspctt.accessoriescompatvanilla.platform.Platform;
 import java.nio.file.Path;
+import java.util.Optional;
 import net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
+import net.fabricmc.loader.api.Version;
+import net.fabricmc.loader.api.VersionParsingException;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -37,6 +41,21 @@ public class FabricPlatform extends Platform {
     @Override
     public boolean isModLoaded(String modId) {
         return FabricLoader.getInstance().isModLoaded(modId);
+    }
+
+    @Override
+    public boolean isModLoaded(String modId, String minimumVersion) {
+        Optional<ModContainer> container = FabricLoader.getInstance().getModContainer(modId);
+
+        if (container.isEmpty()) {
+            return false;
+        }
+        try {
+            return container.get().getMetadata().getVersion().compareTo(Version.parse(minimumVersion)) >= 0;
+        } catch (VersionParsingException exception) {
+            // The minimum always comes from this mod's own code, so one that does not parse is a mistake here.
+            throw new IllegalArgumentException("Not a valid version: " + minimumVersion, exception);
+        }
     }
 
     @Override

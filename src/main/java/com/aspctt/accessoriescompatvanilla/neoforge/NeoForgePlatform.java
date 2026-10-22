@@ -18,19 +18,29 @@ package com.aspctt.accessoriescompatvanilla.neoforge;
 
 import com.aspctt.accessoriescompatvanilla.platform.Platform;
 import java.nio.file.Path;
+import java.util.Optional;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.EffectCures;
 import net.neoforged.neoforge.network.PacketDistributor;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 
 public class NeoForgePlatform extends Platform {
     @Override
     public boolean isModLoaded(String modId) {
         return ModList.get().isLoaded(modId);
+    }
+
+    @Override
+    public boolean isModLoaded(String modId, String minimumVersion) {
+        Optional<? extends ModContainer> container = ModList.get().getModContainerById(modId);
+        return container.isPresent()
+            && container.get().getModInfo().getVersion().compareTo(new DefaultArtifactVersion(minimumVersion)) >= 0;
     }
 
     @Override

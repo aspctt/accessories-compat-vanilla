@@ -40,6 +40,9 @@ public abstract class Platform {
 
     public abstract boolean isModLoaded(String modId);
 
+    // Whether the mod is loaded at the given version or a newer one, compared the way the loader compares versions.
+    public abstract boolean isModLoaded(String modId, String minimumVersion);
+
     public abstract Path getConfigDir();
 
     // Whether the stack grants elytra flight right now, decided the way the loader decides it for the chest slot.
