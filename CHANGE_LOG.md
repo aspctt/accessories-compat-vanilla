@@ -1,6 +1,9 @@
 # Accessories Compat: Vanilla :: Change Log
 - - -
 
+* Unreleased: 1.0.3
+	+ Draw Elytra Trims' trims, banner patterns, dyes and other effects on an elytra in the cape slot, with Elytra Trims 3.10.0 or newer
+
 * 2026-10-16: 1.0.2
 	+ Draw Alex's Mobs Continued's Tarantula Hawk Elytra from the cape slot, and let it fly from there on Fabric too
 	+ Boost with Deeper Darker's Soul Elytra from the cape slot, with Deeper Darker's own messages on NeoForge and boost gauge on Fabric
