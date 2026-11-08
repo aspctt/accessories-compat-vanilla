@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-10-22
+
 ### Added
 
 - Elytra Trims support: its trims, banner patterns, dyes and other effects show on an elytra in the cape slot, with Elytra Trims 3.10.0 or newer
@@ -39,6 +41,7 @@ First release, merging Elytra Slot and Charm of Undying into one mod built nativ
 - Flight on NeoForge without Caelus API
 - Totem display options in `config/accessoriescompatvanilla-client.json`
 
-[Unreleased]: https://github.com/aspctt/accessories-compat-vanilla/compare/1.0.2...HEAD
+[Unreleased]: https://github.com/aspctt/accessories-compat-vanilla/compare/1.0.3...HEAD
+[1.0.3]: https://github.com/aspctt/accessories-compat-vanilla/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/aspctt/accessories-compat-vanilla/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/aspctt/accessories-compat-vanilla/releases/tag/1.0.1
