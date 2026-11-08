@@ -30,6 +30,7 @@ Accessories Compat: Vanilla lets the elytra and the Totem of Undying be worn in 
 
 * Goes in the **cape** slot, and flies exactly as it would in the chest slot, so a chestplate can be worn at the same time.
 * Wears down while gliding and stops working at one durability, as in the chest slot.
+* Gives the attributes it would give in the chest slot, such as Apotheosis affixes, gems and bonus modifiers.
 * Is drawn on the player and on armor stands, using the player's own elytra or cape texture when they have one, and hides the cape it covers. The slot's visibility toggle and cosmetic slots apply to it.
 * Plays the elytra's equip sound, and cannot be equipped while an elytra is already worn in the chest slot.
 * Modded elytras that use the vanilla model are recognised and drawn with their own texture: Deeper Darker, Alex's Mobs Continued, Enderite Mod, Mythic Metals, Mekanism, Mana and Artifice, Wooden Elytra, LieOnLion's Enderite, Nether Elytra, Crystal Mod and Lil' Wings.

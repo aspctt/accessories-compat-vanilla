@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Attributes on an elytra in the cape slot, such as Apotheosis affixes, not applying
+
 ## [1.0.3] - 2026-10-22
 
 ### Added
