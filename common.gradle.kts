@@ -83,3 +83,20 @@ configure<org.gradle.plugins.ide.idea.model.IdeaModel> {
         isDownloadJavadoc = true
     }
 }
+
+// Releasing: what both targets' uploads share. Each loader's build script holds its own publishMods block, since
+// a script applied like this one cannot see the plugin's classes, and the root project holds the shared
+// settings, the changelog and the GitHub release, all in stonecutter.gradle.kts.
+
+// The Minecraft versions this jar is listed for on Modrinth and CurseForge. Spelled out rather than taken
+// from minecraft_version_range, which each loader writes in its own syntax and neither portal can read.
+val releaseMinecraftVersions: List<String> = prop("release_minecraft_versions").split(",").map { it.trim() }
+extra["releaseMinecraftVersions"] = releaseMinecraftVersions
+
+// The versions as the Modrinth title shows them: "1.21-1.21.1" for a jar covering several, and the version
+// alone for one.
+extra["releaseMinecraftLabel"] = if (releaseMinecraftVersions.size == 1) {
+    releaseMinecraftVersions.single()
+} else {
+    "${releaseMinecraftVersions.first()}-${releaseMinecraftVersions.last()}"
+}

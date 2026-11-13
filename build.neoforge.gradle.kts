@@ -1,8 +1,13 @@
+import me.modmuss50.mpp.ModPublishExtension
+import me.modmuss50.mpp.platforms.modrinth.ModrinthEnvironment
+
 plugins {
     id("java-library")
     id("maven-publish")
     id("net.neoforged.moddev") version "2.0.146"
     id("idea")
+    // No version: the root project declares it, for the reason given in stonecutter.gradle.kts
+    id("me.modmuss50.mod-publish-plugin")
 }
 
 apply(from = rootProject.file("common.gradle.kts"))
@@ -83,3 +88,62 @@ val generateModMetadata = tasks.register<ProcessResources>("generateModMetadata"
 }
 sourceSets.main.get().resources.srcDir(generateModMetadata)
 neoForge.ideSyncTask(generateModMetadata)
+
+// Releasing: this target's uploads, set up in parallel with the other loader's build script. The root project
+// holds the shared settings, the changelog and the GitHub release these jars are attached to, all in
+// stonecutter.gradle.kts, and common.gradle.kts works out the Minecraft versions.
+@Suppress("UNCHECKED_CAST")
+val releaseMinecraftVersions = extra["releaseMinecraftVersions"] as List<String>
+val releaseMinecraftLabel = extra["releaseMinecraftLabel"] as String
+val rootPublishMods = rootProject.the<ModPublishExtension>()
+
+publishMods {
+    // A local rather than a script-level value, so the changelog lambda captures a string rather than the
+    // whole build script
+    val modVersion = prop("mod_version")
+    file = tasks.jar.flatMap { it.archiveFile }
+    // The portals show no release title above the notes, so they get the version as a heading
+    changelog = rootPublishMods.changelog.map { "## $modVersion\n\n$it" }
+    type = STABLE
+    // The jar's version, such as "1.0.4+1.21.1-neoforge". It names the loader, since both loaders
+    // ship from this project.
+    version = project.version.toString()
+    modLoaders.add("neoforge")
+    dryRun = rootPublishMods.dryRun
+
+    modrinth {
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        projectId = "qWoiYCbs"
+        // Titled like the earlier versions, such as "Accessories Compat: Elytra & Totem 1.0.4 for NeoForge 1.21.1"
+        displayName = "${prop("portal_name")} $modVersion for NeoForge $releaseMinecraftLabel"
+        minecraftVersions.addAll(releaseMinecraftVersions)
+        // Needed on both the client and the server, as every earlier version was listed
+        environment = ModrinthEnvironment.CLIENT_AND_SERVER
+        additionalFile(tasks.named("sourcesJar")) {
+            type = SOURCES_JAR
+        }
+        requires("accessories")
+    }
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+        projectId = "1690485"
+        // Titled with the same version number as on Modrinth, such as "1.0.4+1.21.1-neoforge"
+        displayName = project.version.toString()
+        minecraftVersions.addAll(releaseMinecraftVersions)
+        client = true
+        server = true
+        changelogType = "markdown"
+        // CurseForge files an additional file under the main one it was uploaded with
+        additionalFile(tasks.named("sourcesJar")) {
+            name = "${project.version}-sources"
+        }
+        requires("accessories")
+    }
+
+    // Only the main jar goes on GitHub, as with the earlier releases. The root project orders these uploads.
+    github {
+        accessToken = providers.environmentVariable("GITHUB_TOKEN")
+        parent(rootProject.tasks.named("publishGithub"))
+    }
+}

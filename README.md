@@ -106,6 +106,14 @@ Jars are written to `versions/<target>/build/libs`, named `AccessoriesCompatVani
 
 Almost all of the mod is shared. Code only one loader can compile lives in its own package, `neoforge` or `fabric`, which the other target leaves out, and `accessoriescompatvanilla-neoforge.mixins.json` is left out of the Fabric jar with it.
 
+### Releasing
+
+`./gradlew publishMods` uploads every target with its sources jar to Modrinth and CurseForge, and creates one GitHub release for the version with the main jars attached, using [mod-publish-plugin](https://modmuss50.github.io/mod-publish-plugin/). Each platform gets the targets one at a time, from the oldest Minecraft version to the newest, with NeoForge before Fabric on the same version. The notes come from the version's section of `CHANGELOG.md`, and the portals list each jar for the Minecraft versions in `release_minecraft_versions`.
+
+It needs three tokens in the environment: `MODRINTH_TOKEN`, a Modrinth personal access token that can create, read and write versions; `CURSEFORGE_TOKEN`, a CurseForge API token; and `GITHUB_TOKEN`, which can write the repository's contents. With any of them missing the run is a dry run, which uploads nothing and writes what it would have sent under each project's `build/publishMods`.
+
+Push the version's tag before publishing, so the release is made on it rather than on a tag GitHub creates at the tip of `main`.
+
 ## Licensing
 
 Accessories Compat: Vanilla is licensed under the GNU Lesser General Public License, version 3 only (LGPL-3.0-only). See [LICENSE](./LICENSE), [COPYING](./COPYING) and [COPYING.LESSER](./COPYING.LESSER).
